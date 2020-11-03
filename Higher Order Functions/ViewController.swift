@@ -15,6 +15,7 @@ class ViewController: UIViewController {
         map()
     }
 
+    //MARK:- MAP - Used when we have to apply same operation to all elements in an Array.
     func map()
     {
         let numberArray = [1,2,3,4,5]
