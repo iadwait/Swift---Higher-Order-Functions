@@ -16,6 +16,7 @@ class ViewController: UIViewController {
         filter()
         reduce()
         sort()
+        flatMap()
     }
 
     //MARK:- MAP - Used when we have to apply same operation to all elements in an Array.
@@ -106,6 +107,29 @@ class ViewController: UIViewController {
         let arrNumber = [1,2,3,4,5]
         let sortedArray = arrNumber.sorted{ $0 > $1 }
         print("Sorted Array = \(sortedArray)")
+    }
+    
+    //MARK:- FlatMap - Combine Values,Also ignore nil value
+    func flatMap()
+    {
+        print("Flat Map Operation")
+        let arr1 = [10,11,12]
+        let arr2 = [13,14,15]
+        //let arr = [[10,11,12],[13,14,15]]
+        let arr = [arr1,arr2]
+        var mergeArray:[Int] = []
+        for num in arr{
+            mergeArray += num
+        }
+        print("Merge Array = \(mergeArray)")
+        
+        //Flat Map
+        let mergeArray2 = arr.flatMap{ $0 }
+        print("Merge Array2 = \(mergeArray2)")
+        
+        let strArray = ["Test",nil,"Test2","Test3",nil,"Test4"] // Removes Nil automatically, Can be applied in JSON Data
+        let mergeArray3 = strArray.flatMap{ $0 }
+        print("Merge Array3 = \(mergeArray3)")
     }
     
 }
