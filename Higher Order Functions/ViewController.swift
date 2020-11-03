@@ -17,6 +17,7 @@ class ViewController: UIViewController {
         reduce()
         sort()
         flatMap()
+        chaining()
     }
 
     //MARK:- MAP - Used when we have to apply same operation to all elements in an Array.
@@ -128,8 +129,25 @@ class ViewController: UIViewController {
         print("Merge Array2 = \(mergeArray2)")
         
         let strArray = ["Test",nil,"Test2","Test3",nil,"Test4"] // Removes Nil automatically, Can be applied in JSON Data
-        let mergeArray3 = strArray.flatMap{ $0 }
+        let mergeArray3 = strArray.flatMap{$0}
         print("Merge Array3 = \(mergeArray3)")
+    }
+    
+    //MARK:- Chaining - Means Using multiple Function(Map,Filter,Reduce,FlatMap etc) in a sinle operations
+    func chaining()
+    {
+        print("Chaining Operation")
+        let arrOfIntArr = [[11,12,13],[14,15,16]]
+        //1.Combine(FlatMap)
+        //2.Keep only Even(Filter)
+        //3.Square all the Even's(MAP)
+        //4.Add the Result(Reduce)
+        let result = arrOfIntArr.flatMap{$0}.filter{$0 % 2 == 0}.map{$0 * $0}
+        let res = result.reduce(0, {$0 + $1})
+        print("Chaining Result = \(res)")
+        
+        let dollarResult = arrOfIntArr.flatMap{$0}.map{"$\($0)"}
+        print("Dollar Result = \(dollarResult)")
     }
     
 }
