@@ -15,6 +15,7 @@ class ViewController: UIViewController {
         map()
         filter()
         reduce()
+        sort()
     }
 
     //MARK:- MAP - Used when we have to apply same operation to all elements in an Array.
@@ -96,6 +97,15 @@ class ViewController: UIViewController {
         let strArray = ["One","Two","Three","Four","Five"]
         let sumReduce3 = strArray.reduce("", { $0 + $1 }) //1st Parameter will append Strint at First of the Result
         print("SumReduce3 = \(sumReduce3)")
+    }
+    
+    //MARK:- Sort
+    func sort()
+    {
+        print("Sort Operation")
+        let arrNumber = [1,2,3,4,5]
+        let sortedArray = arrNumber.sorted{ $0 > $1 }
+        print("Sorted Array = \(sortedArray)")
     }
     
 }
