@@ -14,6 +14,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         map()
         filter()
+        reduce()
     }
 
     //MARK:- MAP - Used when we have to apply same operation to all elements in an Array.
@@ -71,6 +72,29 @@ class ViewController: UIViewController {
             return num % 2 == 0
         }
         print("Result Array3 \(resultArray3)")
+    }
+    
+    //MARK:- Reduce - Used to combine Elements in Collection and get a Single Value. like perform Addition,Add Strings
+    func reduce()
+    {
+        print("Reduce Operations")
+        let numberArray = [1,2,3,4,5]
+        var sum:Int = 0
+        for num in numberArray{
+            sum = sum + num
+        }
+        print("Sum = \(sum)")
+        
+        //Reduce
+        let sumReduce = numberArray.reduce(0, { $0 + $1 }) // in 1st parameter where 0 is written,After getting result, Result is Added by 1st Parameter value
+        print("Sum Reduce = \(sumReduce)")
+        
+        let sumReduce2 = numberArray.reduce(0, +) // Here + indicates $0 + $1
+        print("Sum Reduce2 = \(sumReduce2)")
+        
+        let strArray = ["One","Two","Three","Four","Five"]
+        let sumReduce3 = strArray.reduce("", { $0 + $1 }) //1st Parameter will append Strint at First of the Result
+        print("SumReduce3 = \(sumReduce3)")
     }
     
 }
