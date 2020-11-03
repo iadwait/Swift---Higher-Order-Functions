@@ -148,6 +148,14 @@ class ViewController: UIViewController {
         
         let dollarResult = arrOfIntArr.flatMap{$0}.map{"$\($0)"}
         print("Dollar Result = \(dollarResult)")
+        
+        //let dollarResult = ["$11", "$12", "$13", "$14", "$15", "$16"]
+        //Converting String to Int Array and removing $
+        let numberFormatter = NumberFormatter()
+        numberFormatter.locale = .init(identifier: "en_US")
+        numberFormatter.numberStyle = .currency
+        let integers = dollarResult.map(numberFormatter.number).compactMap({$0?.intValue})
+        print("Int Arr = ",integers) // [11, 12, 13, 14, 15, 16]
     }
     
 }
