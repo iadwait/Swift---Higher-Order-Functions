@@ -92,6 +92,7 @@ class ViewController: UIViewController {
         let sumReduce2 = numberArray.reduce(0, +) // Here + indicates $0 + $1
         print("Sum Reduce2 = \(sumReduce2)")
         
+        //Concatinate Strings
         let strArray = ["One","Two","Three","Four","Five"]
         let sumReduce3 = strArray.reduce("", { $0 + $1 }) //1st Parameter will append Strint at First of the Result
         print("SumReduce3 = \(sumReduce3)")
